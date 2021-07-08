@@ -1,0 +1,92 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    background-color: #1877f2;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.topbar__title {
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.topbar__left {
+    flex: 3;
+}
+
+.topbar__center {
+    flex: 5;
+
+}
+
+.topbar__searchBar {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar__searchBarInput {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    margin-right: 10px;
+    padding: 0 15px;
+}
+
+.topbar__searchBarIcon {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.topbar__searchBarIcon:hover {
+    background-color: #418df0;
+}
+
+.topbar__right {
+    display: flex;
+    flex: 4;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topbar__links {
+    display: flex;
+}
+
+.topbar__link {
+    margin: 0 10px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.topbar__link:hover {
+    background-color: #418df0;
+}
+
+.topbar__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar__iconItem {
+    margin: 0 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.topbar__avatar {
+    margin-left: 50px;
+}
