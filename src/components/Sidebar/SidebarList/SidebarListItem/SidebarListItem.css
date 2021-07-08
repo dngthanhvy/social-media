@@ -14,3 +14,8 @@
 .sidebarListItem__icon {
     margin-right: 15px;
 }
+
+.sidebarListItem__link {
+    text-decoration: none;
+    color: inherit;
+}

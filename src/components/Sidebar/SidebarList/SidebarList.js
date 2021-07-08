@@ -6,16 +6,15 @@ import SidebarListItem from './SidebarListItem/SidebarListItem';
 export default function SidebarList() {
     return (
         <ul className="sidebarList">
-
-            <SidebarListItem ListIcon={RssFeed} name="Feed" />
-            <SidebarListItem ListIcon={ChatBubbleOutlineOutlined} name="Friends" />
-            <SidebarListItem ListIcon={VideoLibraryOutlined} name="Videos" />
-            <SidebarListItem ListIcon={Group} name="Groups" />
-            <SidebarListItem ListIcon={Bookmark} name="Bookmarks" />
-            <SidebarListItem ListIcon={HelpOutline} name="Questions" />
-            <SidebarListItem ListIcon={WorkOutline} name="Jobs" />
-            <SidebarListItem ListIcon={Event} name="Events" />
-            <SidebarListItem ListIcon={School} name="Courses" />
+            <SidebarListItem ListIcon={RssFeed} name="Feed" link="/feed"/>
+            <SidebarListItem ListIcon={ChatBubbleOutlineOutlined} name="Friends" link="/friends"/>
+            <SidebarListItem ListIcon={VideoLibraryOutlined} name="Videos" link="/videos"/>
+            <SidebarListItem ListIcon={Group} name="Groups" link="/groups"/>
+            <SidebarListItem ListIcon={Bookmark} name="Bookmarks" link="/bookmarks"/>
+            <SidebarListItem ListIcon={HelpOutline} name="Questions" link="/questions"/>
+            <SidebarListItem ListIcon={WorkOutline} name="Jobs" link="/jobs"/>
+            <SidebarListItem ListIcon={Event} name="Events" link="/events"/>
+            <SidebarListItem ListIcon={School} name="Courses" link="/courses"/>
         </ul>
     )
 }
