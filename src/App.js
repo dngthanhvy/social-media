@@ -1,13 +1,17 @@
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './App.css';
 import Topbar from './components/Topbar/Topbar';
-import Sidebar from './components/Sidebar/Sidebar';
-
+import Home from './pages/Home/Home';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Topbar />
-    </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
   );
 }
 

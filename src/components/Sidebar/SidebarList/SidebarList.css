@@ -1,0 +1,15 @@
+.sidebarList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebarList__avatarContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebarList__avatar {
+    margin-right: 10px;
+}
