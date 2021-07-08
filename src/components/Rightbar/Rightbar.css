@@ -1,5 +1,33 @@
 .rightbar {
     flex: 2;
     height: calc(100vh - 50px);
-    background-color: darkorange;
+    background-color: #F0F2F5;
+}
+
+.rightbar__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    align-items: center;
+}
+
+.rightbar__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.rightbar__icons {
+    display: flex;
+}
+
+.rightbar__icon {
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.rightbar__icon:hover {
+    background-color: #E4E6E9;
+    transition-delay: 50ms;
 }
