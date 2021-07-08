@@ -9,6 +9,7 @@
 
 .sidebarListItem:hover {
     background-color: rgb(226, 226, 226);
+    transition-delay: 50ms;
 }
 
 .sidebarListItem__icon {

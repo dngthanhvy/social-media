@@ -1,5 +1,5 @@
 import { Avatar } from '@material-ui/core';
-import { VideoCall, PhotoLibrary, EmojiEmotionsOutlined } from '@material-ui/icons';
+import { VideoCall, PhotoLibrary, EmojiEmotionsOutlined, Send } from '@material-ui/icons';
 
 import './Share.css';
 
@@ -11,6 +11,7 @@ export default function Share() {
                 <div className="share__top">
                     <Avatar className="share__avatar"/>
                     <input type="text" className="share__input" placeholder="What's on your mind?"/>
+                    <button className="share__btn"><Send /></button>
                 </div>
 
                 <div className="share__bottom">
