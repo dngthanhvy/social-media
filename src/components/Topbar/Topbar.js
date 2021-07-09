@@ -1,5 +1,6 @@
 import { Search, Person, Chat, Notifications } from '@material-ui/icons';
-import { TextField, Avatar } from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import './Topbar.css';
 
@@ -7,7 +8,9 @@ export default function Topbar() {
     return (
         <div className="topbar">
             <div className="topbar__left">
-                <span className="topbar__title">SocialMedia</span>
+                <Link style={{textDecoration: 'none'}} to="/">
+                    <span className="topbar__title">SocialMedia</span>
+                </Link>
             </div>
 
             <div className="topbar__center">
