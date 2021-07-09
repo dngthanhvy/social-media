@@ -9,6 +9,11 @@
     padding: 10px 0px;
 }
 
+.post__userLink {
+    text-decoration: none;
+    color: inherit;
+}
+
 .post__top {
     display: flex;
     margin: 0 15px;

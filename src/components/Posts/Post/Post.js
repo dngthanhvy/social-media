@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import { ThumbUp, ChatBubbleOutline } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
+
 import './Post.css';
 
 import { Users } from '../../../data';
@@ -31,7 +33,9 @@ export default function Post({id, desc, photo, date, userId, like, comment}) {
                     
                     <Avatar className="post__userAvatar" src={user.profilePicture}/>
                     <div className="post__info">
-                        <span className="post__userName">{user.username}</span>
+                        <Link to={`/profile/${user.id}`} className="post__userLink">
+                            <span className="post__userName">{user.username}</span>
+                        </Link>
                         <span className="post__time">{date}</span>
                     </div>
                 </div>
