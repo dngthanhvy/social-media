@@ -27,7 +27,8 @@ export default function Post({id, desc, photo, date, userId, like, comment}) {
                 </div>
 
                 <div className="post__numberLikesComments">
-                    <span className="post__numbers">{`${like} ${like>1 ? "likes" : "like"}`}</span>
+                    <span className="post__numbersLikes">{`${like} ${like>1 ? "people" : "person"} liked this`}</span>
+                    <span className="post__numberComments">{`${comment} ${comment>1 ? "comments" : "comment"}`}</span>
                 </div>
 
                 <div className="post__buttons">
