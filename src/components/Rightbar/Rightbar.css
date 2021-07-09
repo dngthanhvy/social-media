@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.rightbar__content {
+    overflow-y: scroll;
+}
+
 .rightbar__title {
     font-size: 18px;
     font-weight: 600;
