@@ -90,8 +90,16 @@
     color: #60666D;
 }
 
+.post__icon.liked {
+    color: #1877f2;
+}
+
 .post__buttonsText {
     color: #60666D;
+}
+
+.post__buttonsText.liked{
+    color: #1877f2;
 }
 
 .post__numberLikesComments {
@@ -102,6 +110,12 @@
     margin: 10px 15px;
 }
 
+.post__numbersLikes {
+    display: flex;
+    align-items: center;
+    
+}
+
 .post__numbersLikes:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -110,4 +124,9 @@
 .post__numberComments:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.post__numbersLikeIcon {
+    height: 15px;
+    margin-right: 5px;
 }

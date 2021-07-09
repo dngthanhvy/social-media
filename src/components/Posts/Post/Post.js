@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import { ThumbUp, ChatBubbleOutline } from '@material-ui/icons';
 import './Post.css';
@@ -5,6 +6,20 @@ import './Post.css';
 import { Users } from '../../../data';
 
 export default function Post({id, desc, photo, date, userId, like, comment}) {
+
+    const [likes, setLikes] = useState(like);
+    const [isLiked, setLiked] = useState(false);
+
+    const handleLike = (e) => {
+        if (isLiked) {
+            setLikes(lastLikes => lastLikes - 1);
+            setLiked(false);
+        }
+        else {
+            setLiked(true);
+            setLikes(lastLikes => lastLikes+1);
+        }
+    }
     
     const user = Users.find(user => user.id === userId);
     
@@ -27,14 +42,17 @@ export default function Post({id, desc, photo, date, userId, like, comment}) {
                 </div>
 
                 <div className="post__numberLikesComments">
-                    <span className="post__numbersLikes">{`${like} ${like>1 ? "people" : "person"} liked this`}</span>
+                    <span className="post__numbersLikes">
+                        <img className="post__numbersLikeIcon" src="/assets/like.png" alt="like"/>
+                        {`${likes} ${likes>1 ? "people" : "person"} liked this`}
+                    </span>
                     <span className="post__numberComments">{`${comment} ${comment>1 ? "comments" : "comment"}`}</span>
                 </div>
 
                 <div className="post__buttons">
-                    <div className="post__buttonsItem">
-                        <ThumbUp className="post__icon" />
-                        <span className="post__buttonsText">Like</span>
+                    <div className='post__buttonsItem' onClick={handleLike}>
+                        <ThumbUp className={`post__icon${isLiked ? ' liked' : ''}`} />
+                        <span className={`post__buttonsText${isLiked ? ' liked' : ''}`}>Like</span>
                     </div>
                     <div className="post__buttonsItem">
                         <ChatBubbleOutline className="post__icon" />
