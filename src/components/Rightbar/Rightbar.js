@@ -1,6 +1,7 @@
 import { Search, Add, MoreHoriz } from '@material-ui/icons'
 
 import './Rightbar.css';
+import { Users } from '../../data';
 import Contact from './Contact/Contact';
 
 export default function Rightbar() {
@@ -18,27 +19,7 @@ export default function Rightbar() {
                 </div>
 
                 <div className="rightbar__content">
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
-                    <Contact />
+                    {Users.map(user => <Contact img={user.profilePicture} id={user.id} username={user.username}/>)}
                 </div>
 
             </div>

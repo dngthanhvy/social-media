@@ -1,7 +1,6 @@
 .sidebar {
     flex: 2;
     height: calc(100vh - 50px);
-    background-color: #F0F2F5
 }
 
 .sidebar__wrapper {

@@ -2,11 +2,11 @@ import { Avatar } from '@material-ui/core';
 
 import './Contact.css';
 
-export default function Contact() {
+export default function Contact({ img, id, username }) {
     return (
         <div className="contact">
-            <Avatar />
-            <span className="contact__name">John Smith</span>
+            <Avatar src={img}/>
+            <span className={`contact__name user${id}`}>{username}</span>
         </div>
     )
 }

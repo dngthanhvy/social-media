@@ -2,23 +2,32 @@ import { Avatar } from '@material-ui/core';
 import { ThumbUp, ChatBubbleOutline } from '@material-ui/icons';
 import './Post.css';
 
-export default function Post({userAvatar, username, date}) {
+import { Users } from '../../../data';
+
+export default function Post({id, desc, photo, date, userId, like, comment}) {
+    
+    const user = Users.find(user => user.id === userId);
+    
     return (
         <div className="post">
             <div className="post__wrapper">
 
                 <div className="post__top">
                     
-                    <Avatar className="post__userAvatar"/>
+                    <Avatar className="post__userAvatar" src={user.profilePicture}/>
                     <div className="post__info">
-                        <span className="post__userName">Safak Kocaoglu</span>
-                        <span className="post__time">5 mins ago</span>
+                        <span className="post__userName">{user.username}</span>
+                        <span className="post__time">{date}</span>
                     </div>
                 </div>
 
                 <div className="post__content">
-                    <span className="post__text">Hello! It's my first post :)</span>
-                    <img className="post__img" alt="" src="https://www.jrpass-suisse.ch/wp-content/uploads/2019/02/train_tokyo.jpg"/>
+                    {desc && <span className="post__text">{desc}</span>}
+                    <img className="post__img" alt="" src={photo}/>
+                </div>
+
+                <div className="post__numberLikesComments">
+                    <span className="post__numbers">{`${like} ${like>1 ? "likes" : "like"}`}</span>
                 </div>
 
                 <div className="post__buttons">

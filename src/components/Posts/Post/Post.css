@@ -44,14 +44,19 @@
 }
 
 .post__content {
-    margin: 20px 0px;
+    margin: 10px 0px;
     font-size: 14px;
     display: flex;
     flex-direction: column;
 }
 
+.post__text {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
 .post__img {
-    margin-top: 20px;
+    margin-top: 5px;
     width: 100%;
     object-fit: contain;
 }
@@ -84,4 +89,15 @@
 
 .post__buttonsText {
     color: #60666D;
+}
+
+.post__numberLikesComments {
+    display: flex;
+    font-size: 14px;
+    color: #60666D;
+    cursor: pointer;
+}
+
+.post__numberLikesComments:hover {
+    text-decoration: underline;
 }
