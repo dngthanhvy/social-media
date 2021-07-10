@@ -52,3 +52,55 @@ export const deleteUser = async (req, res) => {
         res.status(403).json({ message: "You can only delete your own account." });
     }
 }
+
+export const followUser = async (req, res) => {
+
+    const user = await User.findById(req.params.userId);
+    if (!user) return res.status(404).json({ message: "User not found." });
+
+    if (req.params.userId != req.body.id) {
+        try {
+            const currentUser = await User.findById(req.body.id);
+            if (!currentUser) return res.status(404).json({ message: "Current user not found."})
+
+            if (!user.friends.includes(req.body.userId)) {
+                await user.updateOne({$push: {friends: req.body.userId}});
+                await currentUser.updateOne({$push: {friends: req.params.id}});
+                res.status(200).json({ message: "You are now friends with this user." });
+            } else {
+                res.status(403).json({ message: "You're already friends with this user." });
+            }
+        } catch (e) {
+            console.log(e.message);
+            res.status(500).json({ message: e.message });
+        }
+    } else {
+        res.status(403).json({ message: "You cannot follow yourself." })
+    }
+}
+
+export const unfollowUser = async (req, res) => {
+
+    const user = await User.findById(req.params.userId);
+    if (!user) return res.status(404).json({ message: "User not found." });
+
+    if (req.params.userId != req.body.id) {
+        try {
+            const currentUser = await User.findById(req.body.id);
+            if (!currentUser) return res.status(404).json({ message: "Current user not found."})
+
+            if (user.friends.includes(req.body.userId)) {
+                await user.updateOne({$pull: {friends: req.body.userId}});
+                await currentUser.updateOne({$pull: {friends: req.params.id}});
+                res.status(200).json({ message: "You have unfriended this user." });
+            } else {
+                res.status(403).json({ message: "You are not friend with this user." });
+            }
+        } catch (e) {
+            console.log(e.message);
+            res.status(500).json({ message: e.message });
+        }
+    } else {
+        res.status(403).json({ message: "You cannot unfriend yourself." })
+    }
+}
