@@ -8,7 +8,7 @@ const connect = async(DB_URL) => {
         useFindAndModify: false
     })
     .then(() => console.log('Connected to the MongoDB database.'))
-    .catch(err => console.log(err.reason));
+    .catch(err => console.log("Something went wrong when connecting to the MongoDB database."));
 };
 
 export default {

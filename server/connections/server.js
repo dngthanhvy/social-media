@@ -5,10 +5,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-import usersRoutes from '../routes/users.js';
-import widgetsRoutes from '../routes/widgets.js';
-app.use('/users', usersRoutes);
-app.use('/widgets', widgetsRoutes)
+import authRoute from '../routes/auth.js';
+import userRoute from '../routes/user.js';
+app.use('/api/auth', authRoute);
+app.use('/api/users', userRoute);
 
 const connect = (PORT) => {
     app.listen(PORT, () => {
