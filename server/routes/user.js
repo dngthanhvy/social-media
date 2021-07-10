@@ -9,7 +9,7 @@ router.get('/:userId', getUser);
 // Update user
 router.put('/:userId', updateUser);
 // Delete user
-router.put('/:userId', deleteUser);
+router.delete('/:userId', deleteUser);
 // Follow user 
 // Unfollow user
 

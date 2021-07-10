@@ -21,7 +21,8 @@ export const authRegister = async(req, res) => {
 
     try {
         await user.save();
-        res.status(201).json(user);
+        const { password, updatedAt, ...other } = user._doc;
+        res.status(201).json(other);
     } catch (e) {
         console.log(e.message);
         res.status(409).json({ message: e.message });
