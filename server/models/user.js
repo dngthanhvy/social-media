@@ -27,6 +27,14 @@ const userSchema = mongoose.Schema({
         type: Array,
         default: []
     },
+    likedPosts: {
+        type: Array,
+        default: []
+    },
+    commentedPosts: {
+        type: Array,
+        default: []
+    },
     isAdmin: {
         type: Boolean,
         default: false
