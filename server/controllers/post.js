@@ -27,9 +27,11 @@ export const updatePost = async (req, res) => {
     const post = await Post.findById(req.params.postId);
     if (!post) return res.status(404).json({ message: "Post not found." });
 
-    if (post.author === req.body.userId) {
+    console.log(post);
+
+    if (post.author === req.body.author) {
         try {
-            post.updateOne({$set: req.body});
+            Post.updateOne({$set: req.body});
             res.status(200).json({ message: "Post infos updated." });
         } catch (e) {
             console.log(e.message);
@@ -45,7 +47,7 @@ export const deletePost = async (req, res) => {
     const post = await Post.findById(req.params.postId);
     if (!post) return res.status(404).json({ message: "Post not found." });
 
-    if (post.author === req.body.userId) {
+    if (post.author === req.body.author) {
         try {
             post.deleteOne({$set: req.body});
             res.status(200).json({ message: "Post deleted." });
@@ -86,7 +88,7 @@ export const likePost = async (req, res) => {
 export const getTimeline = async(req, res) => {
 
     try {
-        const user = await User.findById(req.body.userId);
+        const user = await User.findById(req.params.userId);
         if (!user) return res.status(404).json({ message: "User not found." });
     
         const userPosts = await Post.findOne({ author: req.body.userId });

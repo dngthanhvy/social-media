@@ -8,7 +8,7 @@ router.put('/:postId', updatePost);
 router.delete('/:postId', deletePost);
 router.post('/:postId/like', likePost);
 router.get('/:postId', getPost);
-router.get('/timeline', getTimeline);
+router.get('/timeline/:userId', getTimeline);
 
 export default router;
 
