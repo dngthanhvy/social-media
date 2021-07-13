@@ -3,7 +3,6 @@ import { Search, Add, MoreHoriz } from '@material-ui/icons'
 import { fetchUser } from '../../api';
 
 import './Rightbar.css';
-import { Users } from '../../data';
 import Contact from './Contact/Contact';
 
 export default function Rightbar() {

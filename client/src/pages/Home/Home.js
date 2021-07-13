@@ -1,5 +1,3 @@
-import { Switch, Route } from 'react-router-dom';
-
 import './Home.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Feed from '../../components/Feed/Feed';

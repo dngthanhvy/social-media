@@ -6,8 +6,6 @@ import { fetchUser, likePost, fetchPost } from '../../../api';
 
 import './Post.css';
 
-import { Users } from '../../../data';
-
 export default function Post({id, desc, photo, date, userId, like=[], comment=[]}) {
 
     const [likes, setLikes] = useState(like);
@@ -32,7 +30,7 @@ export default function Post({id, desc, photo, date, userId, like=[], comment=[]
         const res = await fetchUser(userId);
         setUser(res.data);
     }
-    // const user = Users.find(user => user.id === userId);
+    
     useEffect(() => {
 
         fetchUserInfos();

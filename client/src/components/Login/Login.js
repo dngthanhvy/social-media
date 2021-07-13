@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
@@ -21,7 +23,7 @@ export default function Login() {
                     <div className="login__buttons">
                         <button className="create__buttonLogin">Log In</button>
 
-                        <button className="create__buttonRegister">No account yet? Create one</button>
+                        <Link to="/register" className="create__buttonRegister">No account yet? Create one</Link>
                     </div>
 
                 </div>
