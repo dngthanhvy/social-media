@@ -1,8 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { login } from '../../api';
 import './Login.css';
 
 export default function Login() {
+
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+
+    const history = useHistory();
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        const res = await login({ email, password });
+        console.log(res.data);
+        history.push('/');
+    }
+
     return (
         <div className="login">
             <div className="login__wrapper">
@@ -15,13 +29,13 @@ export default function Login() {
                     <h3 className="login__title">Log In</h3>
 
                     <label className="login__label">E-mail</label>
-                    <input type="email" className="login__input" placeholder="Your e-mail"/>
+                    <input type="email" className="login__input" placeholder="Your e-mail" onChange={e => setEmail(e.target.value)}/>
 
                     <label className="login__label">Password</label>
-                    <input type="password" className="login__input" placeholder="Your password"/>
+                    <input type="password" className="login__input" placeholder="Your password" onChange={e => setPassword(e.target.value)}/>
 
                     <div className="login__buttons">
-                        <button className="create__buttonLogin">Log In</button>
+                        <button onClick={handleSubmit} className="create__buttonLogin">Log In</button>
 
                         <Link to="/register" className="create__buttonRegister">No account yet? Create one</Link>
                     </div>
