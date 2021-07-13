@@ -5,7 +5,7 @@
 }
 
 .profileTop__container {
-    height: 400px;
+    height: 500px;
     width: 100%;
     background-color: white;
     border-radius: 10px;
@@ -42,4 +42,31 @@
     font-weight: 600;
     margin: 10px 0;
     font-size: 30px;
+}
+
+.profileTop__user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileTop__follow {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #1877F2;
+    border: none;
+    cursor: pointer;
+}
+
+.profileTop__follow.disabled {
+    background-color: #BDBDBD;
+    border: 2px solid darkgray;
 }

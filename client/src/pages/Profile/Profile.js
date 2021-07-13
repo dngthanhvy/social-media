@@ -7,7 +7,7 @@ export default function Profile() {
     const {id} = useParams();
     return (
         <div className="profile">
-            <ProfileTop id={id} />
+            <ProfileTop id={id} userId={'60ec4397c88c0b4c6cf46ea5'}/>
         </div>
     )
 }
