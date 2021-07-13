@@ -1,6 +1,6 @@
 # A social media web app (facebook clone)
 
-A facebook clone written with the MERN stack.
+A facebook clone written with the MERN stack. Not yet responsive. 
 
 ### Home page
 Current user's feed with their friends' posts along with their own.
