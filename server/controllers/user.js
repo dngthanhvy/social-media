@@ -42,7 +42,7 @@ export const deleteUser = async (req, res) => {
 
     if (req.body.id == req.params.userId || req.body.isAdmin) {
         try {
-            const deleted = await User.deleteOne(req.params.userId);
+            const deleted = await User.findByIdAndDelete(req.params.userId);
             res.status(200).json({ message: "User deleted." });
         } catch (e) {
             console.log(e.message);
@@ -63,9 +63,9 @@ export const followUser = async (req, res) => {
             const currentUser = await User.findById(req.body.id);
             if (!currentUser) return res.status(404).json({ message: "Current user not found."})
 
-            if (!user.friends.includes(req.body.userId)) {
-                await user.updateOne({$push: {friends: req.body.userId}});
-                await currentUser.updateOne({$push: {friends: req.params.id}});
+            if (!user.friends.includes(req.body.id)) {
+                await User.findByIdAndUpdate(req.params.userId, {$push: {friends: req.body.id}});
+                await User.findByIdAndUpdate(req.body.id, {$push: {friends: req.params.userId}});
                 res.status(200).json({ message: "You are now friends with this user." });
             } else {
                 res.status(403).json({ message: "You're already friends with this user." });
@@ -89,9 +89,9 @@ export const unfollowUser = async (req, res) => {
             const currentUser = await User.findById(req.body.id);
             if (!currentUser) return res.status(404).json({ message: "Current user not found."})
 
-            if (user.friends.includes(req.body.userId)) {
-                await user.updateOne({$pull: {friends: req.body.userId}});
-                await currentUser.updateOne({$pull: {friends: req.params.id}});
+            if (user.friends.includes(req.body.id)) {
+                await User.findByIdAndUpdate(req.params.userId, {$pull: {friends: req.body.id}});
+                await User.findByIdAndUpdate(req.body.id, {$pull: {friends: req.params.userId}});
                 res.status(200).json({ message: "You have unfriended this user." });
             } else {
                 res.status(403).json({ message: "You are not friend with this user." });

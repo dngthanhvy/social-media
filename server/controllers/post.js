@@ -27,11 +27,9 @@ export const updatePost = async (req, res) => {
     const post = await Post.findById(req.params.postId);
     if (!post) return res.status(404).json({ message: "Post not found." });
 
-    console.log(post);
-
     if (post.author === req.body.author) {
         try {
-            Post.updateOne({$set: req.body});
+            const updatedPost = await Post.findByIdAndUpdate(req.params.postId, { $set: req.body })
             res.status(200).json({ message: "Post infos updated." });
         } catch (e) {
             console.log(e.message);
