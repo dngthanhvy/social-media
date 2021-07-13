@@ -9,6 +9,10 @@
     padding: 10px 0px;
 }
 
+.post__wrapper {
+    width: 100%;
+}
+
 .post__userLink {
     text-decoration: none;
     color: inherit;
@@ -17,6 +21,21 @@
 .post__top {
     display: flex;
     margin: 0 15px;
+    justify-content: space-between;
+}
+
+.post__topEdit {
+    cursor: pointer
+}
+
+.post__topEdit:hover {
+    border-radius: 50%;
+    transition-delay: 50ms;
+    background-color:rgb(238, 238, 238);
+}
+
+.post__topUserInfos {
+    display: flex;
 }
 
 .post__info {
@@ -107,7 +126,7 @@
     color: #1877f2;
 }
 
-.post__numberLikesComments {
+.post__likesComments {
     display: flex;
     font-size: 14px;
     color: #60666D;

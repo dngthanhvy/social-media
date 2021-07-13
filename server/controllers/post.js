@@ -89,11 +89,12 @@ export const getTimeline = async(req, res) => {
         const user = await User.findById(req.params.userId);
         if (!user) return res.status(404).json({ message: "User not found." });
     
-        const userPosts = await Post.findOne({ author: req.body.userId });
+        const userPosts = await Post.find({ author: req.params.userId });
         const friendsPosts = await Promise.all(
             user.friends.map(friendId => Post.find({ author: friendId }))
         );
-        res.status(200).json(userPosts.concat(...friendsPosts)); 
+        const timelinePosts = friendsPosts.length > 0 ? userPosts.concat(...friendsPosts) : userPosts;
+        res.status(200).json(timelinePosts); 
 
     } catch (e) {
         console.log(e.message);

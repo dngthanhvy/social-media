@@ -17,5 +17,5 @@ export const fetchPost = (postId) => API.get(`/posts/${postId}`);
 export const updatePost = (postId, currentUserId, updatedInfos) => API.put(`/posts/${postId}`, {author: currentUserId, ...updatedInfos});
 export const deletePost = (postId, currentUserId) => API.delete(`/posts/${postId}`, {author: currentUserId});
 export const createPost = (currentUserId, postContent) => API.post(`/posts`, {author: currentUserId, ...postContent});
-export const likePost = (postId, currentUserId) => API.post(`/posts/${postId}/like`, {author: currentUserId});
+export const likePost = (postId, currentUserId) => API.post(`/posts/${postId}/like`, {userId: currentUserId});
 export const fetchTimeline = (userId) => API.get(`/posts/timeline/${userId}`);
